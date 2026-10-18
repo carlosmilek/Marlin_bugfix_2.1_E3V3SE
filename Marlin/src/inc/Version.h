@@ -25,7 +25,7 @@
  * Release version. Leave the Marlin version or apply a custom scheme.
  */
 #ifndef SHORT_BUILD_VERSION
-  #define SHORT_BUILD_VERSION "v2.1.x krasnaya_5a"
+  #define SHORT_BUILD_VERSION "v2.1.x Krasnaya 5"
 #endif
 
 /**
@@ -42,7 +42,7 @@
  * version was tagged.
  */
 #ifndef STRING_DISTRIBUTION_DATE
-  #define STRING_DISTRIBUTION_DATE "2026-06-08"
+  #define STRING_DISTRIBUTION_DATE "2026-10-17"
 #endif
 
 /**

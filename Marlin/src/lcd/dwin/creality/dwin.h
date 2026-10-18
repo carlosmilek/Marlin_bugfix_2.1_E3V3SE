@@ -89,6 +89,16 @@ enum processID : uint8_t {
   MotionMenu,
   Info,
   Pstats,
+#if ENABLED(POWER_LOSS_RECOVERY)
+  PowerLossResume,
+#endif
+#if ENABLED(DWIN_PLR_MENU)
+  PowerLossSettings,
+  PowerLossValue,
+#endif
+#if ENABLED(BED_LEVEL_VISUALIZER)
+  BedLevelView,
+#endif
   Tune,
   #if HAS_PREHEAT
     PLAPreheat,
@@ -780,6 +790,8 @@ typedef struct {
 
 extern HMI_value_t HMI_ValueStruct;
 extern HMI_Flag_t HMI_flag;
+#define hmiFlag HMI_flag // cardreader.cpp (upstream) refers to hmiFlag
+extern bool reset_flag; // Suppress one-click print after a reset / first-boot language pick
 extern bool end_flag; //Prevent repeated refresh of curve completion instructions
 // Show ICO
 void ICON_Print(bool show);
@@ -812,6 +824,10 @@ void Popup_Window_Leveling();
 void Goto_PrintProcess();
 void Goto_MainMenu();
 void Goto_FilePreview();
+
+#if ENABLED(POWER_LOSS_RECOVERY)
+  void DWIN_PowerLossResume();
+#endif
 
 // Variable control
 void HMI_Move_X();
